@@ -1,0 +1,263 @@
+<div class="header" fxLayout="row" fxLayout.xs="column" fxLayoutGap="8px">
+  <div fxFlex>
+    <h1 class="mat-body-strong">AAMMDDHHE1234</h1>
+    <h2 class="mat-small">Em andamento • Ocorrência 1</h2>
+  </div>
+  <div fxFlex="300px" fxFlex.xs="grow" fxLayoutAlign="center center">
+    <button mat-stroked-button fxFlex>PENDÊNCIAS</button>
+    <button mat-raised-button color="accent" fxFlex>SALVAR</button>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-tab-group animationDuration="0ms" dynamicHeight color="accent">
+  <mat-tab label="IDENTIFICAÇÃO">
+    <form>
+      <div fxLayout="row">
+        <!-- Analista CCPD -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Analista CCPD</mat-label>
+          <input
+            type="text"
+            matInput
+            formControl="analistaControl"
+            [matAutocomplete]="analistaAutoComplete"
+          />
+          <mat-autocomplete #analistaAutoComplete="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filtroAnalistas | async"
+              [value]="value"
+            >
+              {{value}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Status -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Status</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let value of listaStatus" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Data -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Data</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Hora -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Hora</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>query_builder</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <!-- Canal de comunicação -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Canal de comunicação</mat-label>
+          <input
+            type="text"
+            matInput
+            formControl="canalComunicacaoControl"
+            [matAutocomplete]="canalComunicacaoAutoComplete"
+          />
+          <mat-autocomplete #canalComunicacaoAutoComplete="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filtroCanaisComunicacao | async"
+              [value]="value"
+            >
+              {{value}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Quem? -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Quem?</mat-label>
+          <input
+            type="text"
+            matInput
+            formControl="quemControl"
+            [matAutocomplete]="quemAutoComplete"
+          />
+          <mat-autocomplete #quemAutoComplete="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filtroQuem | async"
+              [value]="value"
+            >
+              {{value}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Origem -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Origem</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let value of listaOrigens" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Nível de alerta -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Nível de alerta</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let value of listaNiveisAlerta" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Cotur CNCL -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Cotur CNCL?</mat-label>
+          <input
+            type="text"
+            matInput
+            formControl="coturCNCLControl"
+            [matAutocomplete]="coturCNCLAutoComplete"
+          />
+          <mat-autocomplete #coturCNCLAutoComplete="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filtroCoturCNCL | async"
+              [value]="value"
+            >
+              {{value}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Hoário da suspeita -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Hoário da suspeita</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>query_builder</mat-icon>
+        </mat-form-field>
+
+        <!-- Horário da parada -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Horário da parada</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>query_builder</mat-icon>
+        </mat-form-field>
+
+        <!-- Produto -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Produto</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <!-- Vazão -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Vazão (m³)</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <!-- Volume subtraído -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Volume subtraído</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <!-- ID da chamada 168 -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>ID da chamada 168</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let value of listaCategoria168" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Subcategoria 168 -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Subcategoria 168</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let value of listaSubcategoria168"
+              [value]="value"
+            >
+              {{value}}
+            </mat-option>
+          </mat-select>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Validação -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Validação</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let value of listaValidacao" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <!-- Analista validação -->
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Analista validação</mat-label>
+          <input
+            type="text"
+            matInput
+            formControl="analistaValidacaoControl"
+            [matAutocomplete]="analistaValidacaoAutoComplete"
+          />
+          <mat-autocomplete #analistaValidacaoAutoComplete="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filtroAnalistaValidacao | async"
+              [value]="value"
+            >
+              {{value}}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <div class="spacer" fxFlex></div>
+        <div class="spacer" fxFlex></div>
+        <div class="spacer" fxFlex></div>
+      </div>
+
+      <div fxLayout="row">
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Notas da validação</mat-label>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="7"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-tab>
+  <mat-tab label="LOCALIZAÇÃO"> </mat-tab>
+  <mat-tab label="VERIFICAÇÃO"> </mat-tab>
+  <mat-tab label="RESULTADO"> </mat-tab>
+  <mat-tab label="EVENTOS RELACIONADOS"> </mat-tab>
+</mat-tab-group>
