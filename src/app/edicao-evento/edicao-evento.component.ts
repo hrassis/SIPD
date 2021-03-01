@@ -80,6 +80,7 @@ export class EdicaoEventoComponent implements OnInit {
   filtroAnalistaValidacao: Observable<string[]>;
 
   ngOnInit(): void {
+
     this.filtroAnalistas = this.analistaControl.valueChanges.pipe(
       startWith(""),
       map(value => this._filter(value, this.listaAnalistas))
@@ -107,6 +108,6 @@ export class EdicaoEventoComponent implements OnInit {
   }
 
   private _filter(value: string, list: string[]): string[] {
-    return list.filter(option => option.toLowerCase().indexOf(value.toLowerCase()) === 0);
+    return list.filter(option => option.toLowerCase().includes(value.toLowerCase()));
   }
 }

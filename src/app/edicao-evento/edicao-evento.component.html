@@ -21,14 +21,11 @@
           <input
             type="text"
             matInput
-            formControl="analistaControl"
+            [formControl]="analistaControl"
             [matAutocomplete]="analistaAutoComplete"
           />
           <mat-autocomplete #analistaAutoComplete="matAutocomplete">
-            <mat-option
-              *ngFor="let value of filtroAnalistas | async"
-              [value]="value"
-            >
+            <mat-option *ngFor="let value of filtroAnalistas | async" [value]="value">
               {{value}}
             </mat-option>
           </mat-autocomplete>
@@ -72,7 +69,7 @@
           <input
             type="text"
             matInput
-            formControl="canalComunicacaoControl"
+            [formControl]="canalComunicacaoControl"
             [matAutocomplete]="canalComunicacaoAutoComplete"
           />
           <mat-autocomplete #canalComunicacaoAutoComplete="matAutocomplete">
@@ -92,7 +89,7 @@
           <input
             type="text"
             matInput
-            formControl="quemControl"
+            [formControl]="quemControl"
             [matAutocomplete]="quemAutoComplete"
           />
           <mat-autocomplete #quemAutoComplete="matAutocomplete">
@@ -136,7 +133,7 @@
           <input
             type="text"
             matInput
-            formControl="coturCNCLControl"
+            [formControl]="coturCNCLControl"
             [matAutocomplete]="coturCNCLAutoComplete"
           />
           <mat-autocomplete #coturCNCLAutoComplete="matAutocomplete">
@@ -224,7 +221,7 @@
           <input
             type="text"
             matInput
-            formControl="analistaValidacaoControl"
+            [formControl]="analistaValidacaoControl"
             [matAutocomplete]="analistaValidacaoAutoComplete"
           />
           <mat-autocomplete #analistaValidacaoAutoComplete="matAutocomplete">
